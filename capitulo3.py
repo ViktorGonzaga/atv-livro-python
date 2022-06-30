@@ -1,7 +1,7 @@
 def cap_3():
     def ex_1():
         return ('inteiro, flutuante, flutuante, inteiro, inteiro, flutuante')
-    
+
     def ex_4():
         salario = 1201
         pagar_imposto = salario > 1200
@@ -37,8 +37,8 @@ def cap_3():
 
     def ex_10():
         salario = float(input('Digite seu salário:'))
-        aumento  = int('Qual foi a porcentagem de aumento?')
-        
+        aumento = int('Qual foi a porcentagem de aumento?')
+
         return salario + (aumento / 100 * salario)
 
     def ex_11():

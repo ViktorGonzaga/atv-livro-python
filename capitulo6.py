@@ -1,6 +1,6 @@
 def cap_6():
     def ex_1():
-        notas = [0,0,0,0,0,0,0]
+        notas = [0, 0, 0, 0, 0, 0, 0]
         soma = 0
         x = 0
         while x < 7:
@@ -12,7 +12,7 @@ def cap_6():
             print("Nota: ", notas[x])
             x += 1
         print("Media: {}" .format(soma/7))
-    
+
     def ex_2():
         print('Primeira lista:')
         lista1 = []
@@ -30,7 +30,6 @@ def cap_6():
             lista2.append(n)
         lista1.extend(lista2)
         print(lista1)
-
 
     def ex_3():
         print('Primeira lista:')
@@ -56,7 +55,6 @@ def cap_6():
                 lista1.append(n)
         lista1.extend(lista2)
         print(lista1)
-
 
     def ex_5():
         ultimo = 10
@@ -88,7 +86,7 @@ def cap_6():
             if sair:
                 print(fila)
                 break
-    
+
     def ex_6():
         ultimo = 10
         fila1 = list(range(1, ultimo+1))
@@ -154,11 +152,10 @@ def cap_6():
                         break
             else:
                 print('Opção inválida')
-        
+
         print(f'Lista 1: {fila1}')
         print(f'Lista 2: {fila2}')
 
-    
     def ex_7():
         parenteses = input('Digite uma quantidade de parenteses: ')
         abertos = []
@@ -203,7 +200,6 @@ def cap_6():
         else:
             print('Digite ao menos um parenteses')
 
-
     def ex_8():
         l = [15, 7, 27, 39]
         p = int(input('Digite um número: '))
@@ -215,8 +211,7 @@ def cap_6():
         if x == len(l):
             print('Número não encontrado')
         else:
-            print('Número encontrado na posição %d' % x)	
-
+            print('Número encontrado na posição %d' % x)
 
     def ex_9():
         l = [15, 7, 27, 39]
@@ -257,8 +252,7 @@ def cap_6():
             print(f"Número {v} encontrado na posição {posicao_v}")
         else:
             print(f'O número {v} não foi encontrado')
-        
-    
+
     def ex_11():
         l = []
         while True:
@@ -268,17 +262,17 @@ def cap_6():
             l.append(n)
         for x in l:
             print(x)
-        
+
         # Não da para usar o for em loops que necessitam de condições de parada dinâmicas
-    
+
     def ex_12():
-        l = [5,7,9,11,13,15,17,19,21,23,25,27,29,31,33,35,37,39]
+        l = [5, 7, 9, 11, 13, 15, 17, 19, 21,
+             23, 25, 27, 29, 31, 33, 35, 37, 39]
         minimo = l[0]
         for e in l:
             if e < minimo:
                 minimo = e
         print(f'O menor número da lista é {minimo}')
-
 
     def ex_13():
         t = [-10, -8, 0, 2, 5, -2, -4]
@@ -295,9 +289,8 @@ def cap_6():
         print(f'A menor temperatura foi de: {minimo}')
         print(f'A média das temperaturas é: {soma/len(t)}')
 
-    
     def ex_14():
-        l = list(range(1,6))
+        l = list(range(1, 6))
         fim = 5
         while fim > 1:
             trocou = False
@@ -313,9 +306,8 @@ def cap_6():
         for e in l:
             print(e)
 
-    
     def ex_15():
-        l = [3,3,1,5,4]
+        l = [3, 3, 1, 5, 4]
         fim = 5
         while fim > 1:
             trocou = False
@@ -330,31 +322,29 @@ def cap_6():
             fim -= 1
         for e in l:
             print(e)
-
 
     def ex_16():
-            l = [1,2,3,4,5]
-            fim = 5
-            while fim > 1:
-                trocou = False
-                x = 0
-                while x < fim - 1:
-                    if l[x] < l[x+1]:
-                        l[x], l[x+1] = l[x+1], l[x]
-                        trocou = True
-                    x += 1
-                if not trocou:
-                    break
-                fim -= 1
-            for e in l:
-                print(e)
+        l = [1, 2, 3, 4, 5]
+        fim = 5
+        while fim > 1:
+            trocou = False
+            x = 0
+            while x < fim - 1:
+                if l[x] < l[x+1]:
+                    l[x], l[x+1] = l[x+1], l[x]
+                    trocou = True
+                x += 1
+            if not trocou:
+                break
+            fim -= 1
+        for e in l:
+            print(e)
 
-
-    def  ex_17():
-        estoque = { "Tomate": [1000,2.30],
-                    "Alface": [500,0.45],
-                    "Batata": [2001,1.20],
-                    "Feijão": [100,1.50] }
+    def ex_17():
+        estoque = {"Tomate": [1000, 2.30],
+                   "Alface": [500, 0.45],
+                   "Batata": [2001, 1.20],
+                   "Feijão": [100, 1.50]}
         total = 0
         while True:
             print(estoque)
@@ -376,7 +366,6 @@ def cap_6():
         for e in estoque:
             print(f'{e}: {estoque[e][0]}')
 
-
     def ex_18():
         frase = input('Digite uma frase: ')
         dicionario = {}
@@ -389,7 +378,5 @@ def cap_6():
         print(dicionario)
 
 
-    ex_18()
-
-if __name__=='__main__':
+if __name__ == '__main__':
     cap_6()

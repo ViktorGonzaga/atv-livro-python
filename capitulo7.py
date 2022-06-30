@@ -8,7 +8,8 @@ def cap_7():
         while p > -1:
             p = string1.find(string2, p)
             if p > -1:
-                print(f"A string '{string2}' foi encontrada na string '{string1}' na posição {p}")
+                print(
+                    f"A string '{string2}' foi encontrada na string '{string1}' na posição {p}")
                 break
 
     def ex_2():
@@ -50,7 +51,6 @@ def cap_7():
 
         print(f'Resultado: {string3}')
 
-    
     def ex_4():
         string = input("Digite uma string: ")
         dicionario = {}
@@ -59,10 +59,9 @@ def cap_7():
                 dicionario[letra] += 1
             else:
                 dicionario[letra] = 1
-        
+
         for key, value in dicionario.items():
             print(f'{key}: {value}x')
-
 
     def ex_5():
         string1 = input("Digite uma string: ")
@@ -78,7 +77,6 @@ def cap_7():
 
         print(f'3ª string: {string3}')
 
-    
     def ex_6():
         string1 = input("Digite uma string: ")
         string2 = input("Digite outra string: ")
@@ -96,14 +94,14 @@ def cap_7():
             if resultado == '':
                 print('Todos os caracteres foram removidos')
             else:
-                print(f'Os caracteres {string2} foram substituidos por {string3}')
+                print(
+                    f'Os caracteres {string2} foram substituidos por {string3}')
                 print(f'Na string {string1} o resultado é: {resultado}')
         else:
             print("As strings 2 e 3 devem ter o mesmo tamanho")
-        
+
     def ex_7():
         print(2)
-
 
     ex_7()
 

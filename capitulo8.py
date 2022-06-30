@@ -1,15 +1,17 @@
 import random
 
+
 def cap_8():
     # Capítulo sobre funções
     NOME = 'Viktor da Silva Gonzaga'
-    def maximo(a,b):
+
+    def maximo(a, b):
         if a > b:
             return a
         else:
             return b
-    
-    def multiplo(a,b):
+
+    def multiplo(a, b):
         if a % b == 0:
             return True
         else:
@@ -20,14 +22,13 @@ def cap_8():
             return l**2
         else:
             return 'Valor inválido'
-    
 
-    def area_triangulo(base,altura):
+    def area_triangulo(base, altura):
         if base > 0 and altura > 0:
             return base*altura/2
         else:
             return 'Valor inválido'
-    
+
     def pequisa(lista, valor):
         if valor in lista:
             return True
@@ -41,14 +42,14 @@ def cap_8():
         return total
 
     # Funções recursivas
-    def mdc(a,b):
+    def mdc(a, b):
         if b == 0:
             return a
         else:
             return mdc(b, a % b)
 
-    def mmc(a,b):
-        return (a*b)/mdc(a,b)
+    def mmc(a, b):
+        return (a*b)/mdc(a, b)
 
     def fibonacci(n):
         if n == 0:
@@ -62,7 +63,7 @@ def cap_8():
                 x, y = y, x + y
                 n -= 1
             return y
-    
+
     def ex_11(string, minimo, maximo):
         if minimo < len(string) and maximo > len(string):
             return True
@@ -74,9 +75,9 @@ def cap_8():
             return True
         else:
             return False
-    
+
     def jogo_sorte():
-        n = random.randint(1,10)
+        n = random.randint(1, 10)
         chances = 3
         while True:
             if chances == 0:
@@ -89,9 +90,6 @@ def cap_8():
             else:
                 print('Você errou!')
                 chances -= 1
-
-    jogo_sorte()
-    
 
 
 if __name__ == '__main__':

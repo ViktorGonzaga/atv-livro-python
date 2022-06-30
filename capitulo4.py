@@ -4,13 +4,12 @@ def cap_4():
         if velocidade > 80:
             multa = (velocidade - 80) * 5
             print(f'Você foi multado no valor de R${multa:.2f}')
-    
+
     def ex_3():
         numero1 = int(input('Digite um número: '))
         numero2 = int(input('Digite outro número: '))
         numero3 = int(input('Digite mais um número: '))
 
-        
         if numero1 >= numero2 and numero1 >= numero3:
             maior = numero1
             if numero2 <= numero3:
@@ -29,7 +28,7 @@ def cap_4():
                 menor = numero1
             else:
                 menor = numero2
-        
+
         return f"maior = {maior} e menor = {menor}"
 
     def ex_4():
@@ -42,10 +41,9 @@ def cap_4():
                 aumento = salario * 0.10
         else:
             return 'Salário inválido'
-        
+
         return f'O novo salário do funcionário é R${salario + aumento:.2f}'
 
-    
     def ex_5():
         distancia = float(input('Qual a distância da sua viagem? '))
         if distancia > 0:
@@ -57,7 +55,6 @@ def cap_4():
             return 'Distância inválida'
 
         return f'O preço da sua viagem é R${preco:.2f}'
-
 
     def ex_8():
         numero1 = int(input('Digite um número: '))
@@ -78,7 +75,7 @@ def cap_4():
                     return 'Não é possível dividir por zero'
         else:
             return 'Operação inválida'
-        
+
         return f'O resultado da operação é {resultado}'
 
     def ex_9():
@@ -95,12 +92,13 @@ def cap_4():
         else:
             return 'Dados inválidos'
 
-        
     def ex_10():
-        qtd_energia_consumida = float(input('Qual a quantidade de energia consumida? '))
+        qtd_energia_consumida = float(
+            input('Qual a quantidade de energia consumida? '))
 
         if qtd_energia_consumida > 0:
-            tipo_instalacao = input('Qual o tipo de instalação? [1]Residencial [2]Comercial [3]Industrial: ')
+            tipo_instalacao = input(
+                'Qual o tipo de instalação? [1]Residencial [2]Comercial [3]Industrial: ')
 
             if tipo_instalacao == '1':
                 if qtd_energia_consumida <= 500:
@@ -118,6 +116,6 @@ def cap_4():
                 else:
                     valor_consumo = qtd_energia_consumida * 0.60
 
-    
+
 if __name__ == '__main__':
     cap_4()

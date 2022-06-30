@@ -4,7 +4,7 @@ def cap_2():
         b = (4 ** 2) / 30
         c = (9 ** 4 + 2) * 6 - 1
         print(f'{a}\n {b}\n {c}')
-    
+
     def ex_2():
         return (10 % 3 * 10 ** 2 + 1 - 10 * 4 / 2)
 
@@ -16,7 +16,7 @@ def cap_2():
         a = 3
         b = 5
         return 2 * a * 3 * b
-    
+
     def ex_5():
         a = 3
         b = 5

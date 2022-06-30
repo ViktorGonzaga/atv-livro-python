@@ -1,16 +1,15 @@
 def cap_5():
     def ex_1():
-        contagem  = 1
+        contagem = 1
         while contagem <= 100:
             print(contagem)
             contagem += 1
 
     def ex_2():
-        contagem  = 50
+        contagem = 50
         while contagem <= 100:
             print(contagem)
             contagem += 1
-
 
     def ex_3():
         contagem = 10
@@ -55,7 +54,7 @@ def cap_5():
         numero2 = int(input('Digite outro número: '))
 
         contador = numero2
-        
+
         resultado = 0
 
         while contador > 0:
@@ -81,7 +80,6 @@ def cap_5():
         else:
             print('Não é possível fazer a divisão')
 
-
     def ex_10():
         pontos = 0
         questao = 1
@@ -96,7 +94,6 @@ def cap_5():
 
             questao += 1
         print('Pontos: %d' % pontos)
-    
 
     def ex_11():
         deposito_inicial = float(input('Digite o valor do deposito inicial: '))
@@ -112,7 +109,8 @@ def cap_5():
         deposito_inicial = float(input('Digite o valor do deposito inicial: '))
         taxa_juros = float(input('Digite a taxa de juros: '))
         meses = 1
-        valor_mensal_depositado = float(input('Digite o valor mensal depositado: '))
+        valor_mensal_depositado = float(
+            input('Digite o valor mensal depositado: '))
 
         deposito_variavel = deposito_inicial
 
@@ -121,12 +119,12 @@ def cap_5():
             print('Mês %d: %.2f' % (meses, deposito_variavel))
             deposito_inicial += valor_mensal_depositado
             meses += 1
-        
 
     def ex_13():
         divida_inicial = float(input('Digite o valor da divida inicial: '))
         juros_mensais = float(input('Digite o valor dos juros mensais: '))
-        valor_pago_mensalmente = float(input('Digite o valor pago mensalmente: '))
+        valor_pago_mensalmente = float(
+            input('Digite o valor pago mensalmente: '))
         meses = 0
         divida = divida_inicial
         total_pago = 0
@@ -139,13 +137,12 @@ def cap_5():
 
             if divida < 0:
                 total_pago += divida
-            
+
             juros_pagos = total_pago - divida_inicial
 
             print('Total de meses: %d' % meses)
             print('Total pago: %.2f' % total_pago)
             print('Juros pagos: %.2f' % juros_pagos)
-
 
     def ex_14():
         quantidade_digitados = 0
@@ -168,7 +165,8 @@ def cap_5():
     def ex_15():
         preco = 0
         while True:
-            codigo_produto = int(input('Digite o codigo do produto (0 para sair): '))
+            codigo_produto = int(
+                input('Digite o codigo do produto (0 para sair): '))
             if codigo_produto == 0:
                 break
             quantidade = int(input('Digite a quantidade: '))
@@ -203,7 +201,7 @@ def cap_5():
                 print("%d notas de R$ %d" % (notas, atual))
                 if apagar == 0:
                     break
-                if atual  == 100:
+                if atual == 100:
                     atual = 50
                 elif atual == 50:
                     atual = 20
@@ -216,13 +214,13 @@ def cap_5():
                 elif atual == 2:
                     atual = 1
                 notas = 0
-    
+
     def ex_19():
         valor = float(input('Digite o valor a pagar: '))
         notas = 0
         atual = 100
         apagar = valor
-        
+
         if valor >= 0.1:
             while True:
                 if apagar >= atual:
@@ -232,7 +230,7 @@ def cap_5():
                     print("%d notas de R$ %.2f" % (notas, atual))
                     if apagar < 0.01:
                         break
-                    if atual  == 100:
+                    if atual == 100:
                         atual = 50
                     elif atual == 50:
                         atual = 20
@@ -255,9 +253,8 @@ def cap_5():
                     elif atual == 0.05:
                         atual = 0.01
                     notas = 0
-        else:         
+        else:
             print('Valor inválido')
-            
 
     def ex_21():
         while True:
@@ -267,7 +264,7 @@ def cap_5():
             notas = 0
             atual = 100
             apagar = valor
-            
+
             if valor >= 0.1:
                 while True:
                     if apagar >= atual:
@@ -277,7 +274,7 @@ def cap_5():
                         print("%d notas de R$ %.2f" % (notas, atual))
                         if apagar < 0.01:
                             break
-                        if atual  == 100:
+                        if atual == 100:
                             atual = 50
                         elif atual == 50:
                             atual = 20
@@ -300,7 +297,7 @@ def cap_5():
                         elif atual == 0.05:
                             atual = 0.01
                         notas = 0
-            else:         
+            else:
                 print('Valor inválido')
 
     def ex_22():
@@ -310,7 +307,8 @@ def cap_5():
             while numero < 11:
                 complemento = 1
                 while complemento < 11:
-                    print('%d + %d = %d' % (numero, complemento, numero + complemento))
+                    print('%d + %d = %d' %
+                          (numero, complemento, numero + complemento))
                     complemento += 1
                 print('-----------')
                 numero += 1
@@ -318,7 +316,8 @@ def cap_5():
             while numero < 11:
                 complemento = 1
                 while complemento < 11:
-                    print('%d - %d = %d' % (numero, complemento, numero - complemento))
+                    print('%d - %d = %d' %
+                          (numero, complemento, numero - complemento))
                     complemento += 1
                 print('-----------')
                 numero += 1
@@ -326,7 +325,8 @@ def cap_5():
             while numero < 11:
                 complemento = 1
                 while complemento < 11:
-                    print('%d * %d = %d' % (numero, complemento, numero * complemento))
+                    print('%d * %d = %d' %
+                          (numero, complemento, numero * complemento))
                     complemento += 1
                 print('-----------')
                 numero += 1
@@ -334,7 +334,8 @@ def cap_5():
             while numero < 11:
                 complemento = 1
                 while complemento < 11:
-                    print('%d / %d = %.2f' % (numero, complemento, numero / complemento))
+                    print('%d / %d = %.2f' %
+                          (numero, complemento, numero / complemento))
                     complemento += 1
                 print('-----------')
                 numero += 1
@@ -387,7 +388,7 @@ def cap_5():
                         print(y)
                         p += 1
                     y += 2
-    
+
     def primo(n):
         if n < 2:
             return False
@@ -423,14 +424,14 @@ def cap_5():
             b = p
             p = (b + (n/b))/2
             p_ao_quadrado = p**2
-        
+
         print('A raiz quadrada de %d é %.2f' % (n, p))
 
     def ex_26():
         # Calcular o resto de uma divisão com apenas o uso de adição e subtração
         numero1 = int(input('Digite o primeiro número: '))
         numero2 = int(input('Digite o segundo número: '))
-        
+
         if numero1 > 0 and numero2 > 0:
             if numero1 < numero2:
                 resto = numero1
@@ -453,9 +454,5 @@ def cap_5():
             print('Não é palíndromo')
 
 
-                    
-    ex_27()
-if __name__=='__main__':
+if __name__ == '__main__':
     cap_5()
-
-
