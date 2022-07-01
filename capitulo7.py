@@ -101,10 +101,117 @@ def cap_7():
             print("As strings 2 e 3 devem ter o mesmo tamanho")
 
     def ex_7():
-        print(2)
+        palavra = input("Digite a palavra secreta: ").lower().strip()
+        print("\n"*100)
+        digitadas = []
+        acertos = []
+        erros = 0
+        while True:
+            senha = ""
+            for letra in palavra:
+                if letra in acertos:
+                    senha += letra
+                else:
+                    senha += "."
+            print(senha)
+            if senha == palavra:
+                print("Você acertou!")
+                break
+            tentativa = input("\nDigite uma letra: ").lower().strip()
+            if tentativa in digitadas:
+                print("Você já tentou esta letra!")
+                continue
+            else:
+                digitadas += tentativa
+                if tentativa in palavra:
+                    acertos += tentativa
+                else:
+                    erros += 1
+                    print("Você errou!")
+            print("X==:==\nX  :  ")
+            print("X  O  " if erros >= 1 else "X")
+            linha2 = ""
+            if erros == 2:
+                linha2 = "  |  "
+            elif erros == 3:
+                linha2 = " \|  "
+            elif erros >= 4:
+                linha2 = " \|/ "
+            print(f"X{linha2}")
+            linha3 = ""
+            if erros == 5:
+                linha3 += " /   "
+            elif erros >= 6:
+                linha3 += " / \ "
+            print(f"X{linha3}")
+            print("X\n===========")
+            if erros == 6:
+                print("Enforcado!")
+                print(f"A palavra era: {palavra}")
+                break
 
-    ex_7()
+    def ex_8():
+        palavras = []
+        while True:
+            palavra = input("Digite uma palavra secreta (fim para sair): ").lower().strip()
+            if palavra != "fim" and palavra not in palavras:
+                palavras.append(palavra)
+                print(palavras)
+            elif palavra == "fim":
+                break
+            else:
+                print("Palavra já existente")
 
+        numero_digitado = int(input("Digite um número (para sortear a palavra): "))
+        indice = (numero_digitado*776) % len(palavras)
+        palavra = palavras[indice]
+        print("\n"*100)
+        digitadas = []
+        acertos = []
+        erros = 0
+        while True:
+            senha = ""
+            for letra in palavra:
+                if letra in acertos:
+                    senha += letra
+                else:
+                    senha += "."
+            print(senha)
+            if senha == palavra:
+                print("Você acertou!")
+                break
+            tentativa = input("\nDigite uma letra: ").lower().strip()
+            if tentativa in digitadas:
+                print("Você já tentou esta letra!")
+                continue
+            else:
+                digitadas += tentativa
+                if tentativa in palavra:
+                    acertos += tentativa
+                else:
+                    erros += 1
+                    print("Você errou!")
+            print("X==:==\nX  :  ")
+            print("X  O  " if erros >= 1 else "X")
+            linha2 = ""
+            if erros == 2:
+                linha2 = "  |  "
+            elif erros == 3:
+                linha2 = " \|  "
+            elif erros >= 4:
+                linha2 = " \|/ "
+            print(f"X{linha2}")
+            linha3 = ""
+            if erros == 5:
+                linha3 += " /   "
+            elif erros >= 6:
+                linha3 += " / \ "
+            print(f"X{linha3}")
+            print("X\n===========")
+            if erros == 6:
+                print("Enforcado!")
+                print(f"A palavra era: {palavra}")
+                break
 
 if __name__ == '__main__':
     cap_7()
