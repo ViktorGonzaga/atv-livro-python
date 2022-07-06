@@ -153,7 +153,8 @@ def cap_7():
     def ex_8():
         palavras = []
         while True:
-            palavra = input("Digite uma palavra secreta (fim para sair): ").lower().strip()
+            palavra = input(
+                "Digite uma palavra secreta (fim para sair): ").lower().strip()
             if palavra != "fim" and palavra not in palavras:
                 palavras.append(palavra)
                 print(palavras)
@@ -162,7 +163,8 @@ def cap_7():
             else:
                 print("Palavra já existente")
 
-        numero_digitado = int(input("Digite um número (para sortear a palavra): "))
+        numero_digitado = int(
+            input("Digite um número (para sortear a palavra): "))
         indice = (numero_digitado*776) % len(palavras)
         palavra = palavras[indice]
         print("\n"*100)
@@ -192,7 +194,10 @@ def cap_7():
                     erros += 1
                     print("Você errou!")
             print("X==:==\nX  :  ")
-            print("X  O  " if erros >= 1 else "X")
+            if erros >= 1:
+                print("X  O  ")
+            else:
+                print("X")
             linha2 = ""
             if erros == 2:
                 linha2 = "  |  "
@@ -212,6 +217,7 @@ def cap_7():
                 print("Enforcado!")
                 print(f"A palavra era: {palavra}")
                 break
+
 
 if __name__ == '__main__':
     cap_7()

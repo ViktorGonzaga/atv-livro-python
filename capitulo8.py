@@ -91,6 +91,89 @@ def cap_8():
                 print('Você errou!')
                 chances -= 1
 
+    def ex_8():
+        palavras = []
+        while True:
+            palavra = input(
+                "Digite uma palavra secreta (fim para sair): ").lower().strip()
+            if palavra != "fim" and palavra not in palavras:
+                palavras.append(palavra)
+                print(palavras)
+            elif palavra == "fim":
+                break
+            else:
+                print("Palavra já existente")
+
+        indice = random.randint(0, len(palavras)-1)
+        palavra = palavras[indice]
+        print("\n"*100)
+        digitadas = []
+        acertos = []
+        erros = 0
+        while True:
+            senha = ""
+            for letra in palavra:
+                if letra in acertos:
+                    senha += letra
+                else:
+                    senha += "."
+            print(senha)
+            if senha == palavra:
+                print("Você acertou!")
+                break
+            tentativa = input("\nDigite uma letra: ").lower().strip()
+            if tentativa in digitadas:
+                print("Você já tentou esta letra!")
+                continue
+            else:
+                digitadas += tentativa
+                if tentativa in palavra:
+                    acertos += tentativa
+                else:
+                    erros += 1
+                    print("Você errou!")
+            print("X==:==\nX  :  ")
+            if erros >= 1:
+                print("X  O  ")
+            else:
+                print("X")
+            linha2 = ""
+            if erros == 2:
+                linha2 = "  |  "
+            elif erros == 3:
+                linha2 = " \|  "
+            elif erros >= 4:
+                linha2 = " \|/ "
+            print(f"X{linha2}")
+            linha3 = ""
+            if erros == 5:
+                linha3 += " /   "
+            elif erros >= 6:
+                linha3 += " / \ "
+            print(f"X{linha3}")
+            print("X\n===========")
+            if erros == 6:
+                print("Enforcado!")
+                print(f"A palavra era: {palavra}")
+                break
+
+    def ex_15():
+        ESPAÇOS_POR_NÍVEL = 4
+
+        def imprime_elementos(l, nivel=0):
+            espacos = ' ' * ESPAÇOS_POR_NÍVEL * nivel
+            if type(l) == list:
+                print(espacos, "[")
+                for e in l:
+                    imprime_elementos(e, nivel + 1)
+                print(espacos, "]")
+            else:
+                print(espacos, l)
+
+        L = [1, [2, 3, 4, [5, 6, 7]]]
+
+        imprime_elementos(L)
+
 
 if __name__ == '__main__':
     cap_8()
