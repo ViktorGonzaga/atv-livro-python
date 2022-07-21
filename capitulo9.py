@@ -100,6 +100,98 @@ def cap_9():
                 print(linha)
         entrada.close()
 
+    def ex_7():
+        LARGURA = 76
+        LINHAS = 60
+        
+        # Aparentemente as quebras de linha estão fazendo com que a quantida de linhas seja maior que o esperado
+        nome_do_arquivo = sys.argv[1]
+        arquivo = open(nome_do_arquivo, "r")
+        arquivo_saida = open("paginacao.txt", "w")
+        qtd_linhas = 0
+        pagina = 1
+        for linha in arquivo.readlines():
+            tamanho_linha = len(linha)
+            if tamanho_linha > LARGURA:
+                while tamanho_linha > LARGURA:
+                    arquivo_saida.write(linha[:LARGURA] + "\n")
+                    linha = linha[LARGURA:]
+                    qtd_linhas += 1
+                    if qtd_linhas == LINHAS:
+                        arquivo_saida.write(f"Página {pagina}\n")
+                        pagina += 1
+                        qtd_linhas = 0
+                    tamanho_linha = len(linha)
+            arquivo_saida.write(linha + "\n")
+            qtd_linhas += 1
+            if qtd_linhas == LINHAS:
+                arquivo_saida.write(f"-------------------Pagina {pagina}-----------------\n")
+                qtd_linhas = 0
+                pagina += 1
+
+        arquivo.close()
+        arquivo_saida.close()
+
+    
+    def ex_8():
+        LARGURA = int(input("Digite a largura da página: "))
+        LINHAS = int(input("Digite a quantidade de linhas da página: "))
+        
+        # Aparentemente as quebras de linha estão fazendo com que a quantida de linhas seja maior que o esperado
+        nome_do_arquivo = sys.argv[1]
+        arquivo = open(nome_do_arquivo, "r")
+        arquivo_saida = open("paginacao_personalizada.txt", "w")
+        qtd_linhas = 0
+        pagina = 1
+        for linha in arquivo.readlines():
+            tamanho_linha = len(linha)
+            if tamanho_linha > LARGURA:
+                while tamanho_linha > LARGURA:
+                    arquivo_saida.write(linha[:LARGURA] + "\n")
+                    linha = linha[LARGURA:]
+                    qtd_linhas += 1
+                    if qtd_linhas == LINHAS:
+                        arquivo_saida.write(f"-----------------Pagina {pagina}------------------\n")
+                        pagina += 1
+                        qtd_linhas = 0
+                    tamanho_linha = len(linha)
+            arquivo_saida.write(linha)
+            qtd_linhas += 1
+            if qtd_linhas == LINHAS:
+                arquivo_saida.write(f"-------------------Pagina {pagina}-----------------\n")
+                qtd_linhas = 0
+                pagina += 1
+
+        arquivo.close()
+        arquivo_saida.close()
+        
+
+    def ex_9():
+        if len(sys.argv) == 1:
+            print("Não foi informado o nome do arquivo")
+        else:
+            lista_arquivos = sys.argv[1:]
+
+            for i in lista_arquivos:
+                arquivo = open(i, "r")
+                for linha in arquivo.readlines():
+                    print(linha)
+                arquivo.close()
+        
+    
+    def ex_10():
+        if len(sys.argv) == 1:
+            print("Não foi informado o nome do arquivo")
+        else:
+            lista_arquivos = sys.argv[1:]
+            arquivo_saida = open("arquivo_saida.txt", "w")
+            for i in lista_arquivos:
+                arquivo = open(i, "r")
+                for linha in arquivo.readlines():
+                    arquivo_saida.write(linha)
+                arquivo.close()
+            arquivo_saida.close()
+
 
 if __name__ == '__main__':
     cap_9()
