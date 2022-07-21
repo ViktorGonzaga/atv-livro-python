@@ -103,7 +103,7 @@ def cap_9():
     def ex_7():
         LARGURA = 76
         LINHAS = 60
-        
+
         # Aparentemente as quebras de linha estão fazendo com que a quantida de linhas seja maior que o esperado
         nome_do_arquivo = sys.argv[1]
         arquivo = open(nome_do_arquivo, "r")
@@ -125,18 +125,18 @@ def cap_9():
             arquivo_saida.write(linha + "\n")
             qtd_linhas += 1
             if qtd_linhas == LINHAS:
-                arquivo_saida.write(f"-------------------Pagina {pagina}-----------------\n")
+                arquivo_saida.write(
+                    f"-------------------Pagina {pagina}-----------------\n")
                 qtd_linhas = 0
                 pagina += 1
 
         arquivo.close()
         arquivo_saida.close()
 
-    
     def ex_8():
         LARGURA = int(input("Digite a largura da página: "))
         LINHAS = int(input("Digite a quantidade de linhas da página: "))
-        
+
         # Aparentemente as quebras de linha estão fazendo com que a quantida de linhas seja maior que o esperado
         nome_do_arquivo = sys.argv[1]
         arquivo = open(nome_do_arquivo, "r")
@@ -151,20 +151,21 @@ def cap_9():
                     linha = linha[LARGURA:]
                     qtd_linhas += 1
                     if qtd_linhas == LINHAS:
-                        arquivo_saida.write(f"-----------------Pagina {pagina}------------------\n")
+                        arquivo_saida.write(
+                            f"-----------------Pagina {pagina}------------------\n")
                         pagina += 1
                         qtd_linhas = 0
                     tamanho_linha = len(linha)
             arquivo_saida.write(linha)
             qtd_linhas += 1
             if qtd_linhas == LINHAS:
-                arquivo_saida.write(f"-------------------Pagina {pagina}-----------------\n")
+                arquivo_saida.write(
+                    f"-------------------Pagina {pagina}-----------------\n")
                 qtd_linhas = 0
                 pagina += 1
 
         arquivo.close()
         arquivo_saida.close()
-        
 
     def ex_9():
         if len(sys.argv) == 1:
@@ -177,8 +178,7 @@ def cap_9():
                 for linha in arquivo.readlines():
                     print(linha)
                 arquivo.close()
-        
-    
+
     def ex_10():
         if len(sys.argv) == 1:
             print("Não foi informado o nome do arquivo")
