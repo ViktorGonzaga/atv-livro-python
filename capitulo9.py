@@ -1,4 +1,5 @@
 import sys
+import random
 
 
 def cap_9():
@@ -207,6 +208,144 @@ def cap_9():
 
         print(dicionario_palavras)
         arquivo.close()
+
+    def ex_13():
+        nome_do_arquivo = sys.argv[1]
+        arquivo = open(nome_do_arquivo, "r")
+
+        inicio = int(input("Digita o número da linha de início: "))
+        fim = int(input("Digita o número da linha de fim: "))
+
+        contador = 0
+
+        for linha in arquivo.readlines():
+            contador += 1
+            if contador >= inicio and contador <= fim:
+                print(linha)
+        arquivo.close()
+
+    def ex_15():
+        nome_do_jogador = input("Digite o nome do jogador: ").title().strip()
+        if len(nome_do_jogador) == 0:
+            print("Não foi informado o nome do jogador")
+            nome_do_jogador = "Jogador"
+        palavras = []
+        nome_do_arquivo = sys.argv[1]
+        arquivo = open(nome_do_arquivo, "r")
+        for linha in arquivo.readlines():
+            lista_palavras = linha.split()
+            for i in lista_palavras:
+                if i not in palavras:
+                    palavras.append(i)
+        random.shuffle(palavras)
+        numero_digitado = int(
+            input("Digite um número (para sortear a palavra): "))
+        indice = (numero_digitado*776) % len(palavras)
+        palavra = palavras[indice]
+        print("\n"*100)
+        digitadas = []
+        acertos = []
+        erros = 0
+        while True:
+            senha = ""
+            for letra in palavra:
+                if letra in acertos:
+                    senha += letra
+                else:
+                    senha += "."
+            print(senha)
+            if senha == palavra:
+                print("Você acertou!")
+                arquivo_ranking = open("ranking.txt", "a")
+                arquivo_ranking.write(f"{nome_do_jogador} ")
+                arquivo_ranking.close()
+                break
+            tentativa = input("\nDigite uma letra: ").lower().strip()
+            if tentativa in digitadas:
+                print("Você já tentou esta letra!")
+                continue
+            else:
+                digitadas += tentativa
+                if tentativa in palavra:
+                    acertos += tentativa
+                else:
+                    erros += 1
+                    print("Você errou!")
+            print("X==:==\nX  :  ")
+            if erros >= 1:
+                print("X  O  ")
+            else:
+                print("X")
+            linha2 = ""
+            if erros == 2:
+                linha2 = "  |  "
+            elif erros == 3:
+                linha2 = " \|  "
+            elif erros >= 4:
+                linha2 = " \|/ "
+            print(f"X{linha2}")
+            linha3 = ""
+            if erros == 5:
+                linha3 += " /   "
+            elif erros >= 6:
+                linha3 += " / \ "
+            print(f"X{linha3}")
+            print("X\n===========")
+            if erros == 6:
+                print("Enforcado!")
+                print(f"A palavra era: {palavra}")
+                break
+
+        coletar_ranking = open("ranking.txt", "r")
+        dicionario_nomes = {}
+        for linha in coletar_ranking.readlines():
+            lista_nomes = linha.split()
+            for i in lista_nomes:
+                if i not in dicionario_nomes:
+                    dicionario_nomes[i] = 1
+                else:
+                    dicionario_nomes[i] += 1
+        coletar_ranking.close()
+        print("RANKING:")
+        if len(dicionario_nomes) < 5:
+            for i in dicionario_nomes:
+                print(f"{i} - {dicionario_nomes[i]}")
+        else:
+            lista_pontos = []
+            for nome, pontos in dicionario_nomes.items():
+                lista_pontos.append(pontos)
+            lista_pontos.sort(reverse=True)
+
+            primeiro_lugar = lista_pontos[0]
+            segundo_lugar = lista_pontos[1]
+            terceiro_lugar = lista_pontos[2]
+            quarto_lugar = lista_pontos[3]
+            quinto_lugar = lista_pontos[4]
+
+            for nome, pontos in dicionario_nomes.items():
+                if pontos == lista_pontos[0]:
+                    primeiro_lugar = nome, pontos
+                elif pontos == lista_pontos[1]:
+                    segundo_lugar = nome, pontos
+                elif pontos == lista_pontos[2]:
+                    terceiro_lugar = nome, pontos
+                elif pontos == lista_pontos[3]:
+                    quarto_lugar = nome, pontos
+                elif pontos == lista_pontos[4]:
+                    quinto_lugar = nome, pontos
+
+            print(
+                f"Primeiro lugar: {primeiro_lugar[0]} - {primeiro_lugar[1]} Pontos")
+            print(
+                f"Segundo lugar: {segundo_lugar[0]} - {segundo_lugar[1]} Pontos")
+            print(
+                f"Terceiro lugar: {terceiro_lugar[0]} - {terceiro_lugar[1]} Pontos")
+            print(
+                f"Quarto lugar: {quarto_lugar[0]} - {quarto_lugar[1]} Pontos")
+            print(
+                f"Quinto lugar: {quinto_lugar[0]} - {quinto_lugar[1]} Pontos")
+
+        coletar_ranking.close()
 
 
 if __name__ == '__main__':
