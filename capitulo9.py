@@ -1,6 +1,6 @@
 import sys
 import random
-
+import os.path
 
 def cap_9():
     def ex_1():
@@ -347,6 +347,213 @@ def cap_9():
 
         coletar_ranking.close()
 
+    
+    def ex_16():
+        agenda = []
+        def pede_nome():
+            return(input("Nome: "))
+        def pede_telefone():
+            return(input("Telefone: "))
+        def pede_email():
+            return(input("Email: "))
+        def pede_nome_arquivo():
+            return(input("Nome do arquivo: "))
+        def mostra_dados(nome, telefone, email):
+            print("Nome: %s Telefone: %s Email: %s" % (nome, telefone, email))
+        def cadastra():
+            nome = pede_nome()
+            telefone = pede_telefone()
+            email = pede_email()
+            agenda.append([nome, telefone, email])
+        def le():
+            nome_arquivo = pede_nome_arquivo()
+            arquivo = open(nome_arquivo, "r")
+            for linha in arquivo.readlines():
+                nome, telefone, email = linha.split("#")
+                agenda.append([nome, telefone, email])
+            arquivo.close()
+        def remove():
+            nome = pede_nome()
+            for contato in agenda:
+                if contato[0] == nome:
+                    agenda.remove(contato)
+        def altera():
+            nome = pede_nome()
+            for contato in agenda:
+                if contato[0] == nome:
+                    contato[0] = pede_nome()
+                    contato[1] = pede_telefone()
+                    contato[2] = pede_email()
+                    
+        def lista():
+            print("Lista de contatos")
+            for contato in agenda:
+                mostra_dados(contato[0], contato[1], contato[2])
+        def grava():
+            nome_arquivo = pede_nome_arquivo()
+            arquivo = open(nome_arquivo, "a")
+            for contato in agenda:
+                arquivo.write("%s %s %s\n" % (contato[0], contato[1], contato[2]))
+            arquivo.close()
+        def valida_nome(nome):
+            if nome == "0":
+                return False
+            if not nome.isalpha():
+                return False
+            return True
+        def valida_telefone(telefone):
+            if len(telefone) != 9:
+                return False
+            if not telefone.isdigit():
+                return False
+            return True
+        def valida_email(email):
+            if '@' not in email:
+                return False
+            if '.' not in email:
+                return False
+            return True
+        def valida_dados(nome, telefone, email):
+            if valida_nome(nome) and valida_telefone(telefone) and valida_email(email):
+                return True
+            return False
+        def menu():
+            print("""
+--- MENU ---
+1 - Cadastrar
+2 - Alterar
+3 - Remover
+4 - Listar
+5 - Gravar
+6 - Ler
+0 - Sair
+""")
+        def run():
+            while True:
+                menu()
+                opcao = int(input("Digite sua opção: "))
+                if opcao == 1:
+                    cadastra()
+                elif opcao == 2:
+                    altera()
+                elif opcao == 3:
+                    remove()
+                elif opcao == 4:
+                    lista()
+                elif opcao == 5:
+                    grava()
+                elif opcao == 6:
+                    le()
+                elif opcao == 0:
+                    break
+                else:
+                    print("Opção inválida")
+        run()
+
+    
+    def ex_29():
+        filmes = {
+            "drama": ["Cidadão Kane", "O Poderoso Chefão"],
+            "comedia": ["Tempos Modernos", "American Pie", "Dr. Dolittle"],
+            "policial": ["Chuva Negra", "Desejo de Matar", "Difícil de Matar"],
+            "guerra": ["Rambo", "Platoon","Tora!Tora!Tora!"],
+        }
+        pagina = open("filmes.html", "w", encoding='utf-8')
+        pagina.write("""
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+            <meta charset="utf-8">
+            <title>Filmes</title>
+        </head>
+        <body>
+        """)
+        for c, v in filmes.items():
+            pagina.write(f"<h1>{c}</h1>")
+            for i in v:
+                pagina.write(f"<p>{i}</p>")
+        pagina.write("""
+        </body>
+        </html>
+        """)
+        pagina.close()
+
+
+    def ex_30():
+        filmes = {
+            "drama": ["Cidadão Kane", "O Poderoso Chefão"],
+            "comedia": ["Tempos Modernos", "American Pie", "Dr. Dolittle"],
+            "policial": ["Chuva Negra", "Desejo de Matar", "Difícil de Matar"],
+            "guerra": ["Rambo", "Platoon","Tora!Tora!Tora!"],
+        }
+        pagina = open("filmes.html", "w", encoding='utf-8')
+        pagina.write("""
+        <!DOCTYPE html>
+        <html lang="pt-br">
+        <head>
+            <meta charset="utf-8">
+            <title>Filmes</title>
+        </head>
+        <body>
+        <h1>Filmes</h1>
+        """)
+        for c, v in filmes.items():
+            pagina.write(f"<h2>{c}</h2>")
+            pagina.write("<ul>")
+            for i in v:
+                pagina.write(f"<li>{i}</li>")
+            pagina.write("</ul>")
+        pagina.write("""
+        </body>
+        </html>
+        """)
+        pagina.close()
+
+
+    def ex_31():
+        if os.path.exists("z"):
+            if os.path.isdir("z"):
+                print("É um diretório")
+            else:
+                print("É um arquivo")
+        else:
+            print("Não existe")
+    
+    def ex_32():
+        nome = sys.argv[1]
+        if os.path.exists(nome):
+            if os.path.isdir(nome):
+                print("É um diretório")
+            else:
+                print("É um arquivo")
+        else:
+            print("Não existe")
+
+    def ex_33():
+        nome_diretorio = sys.argv[1]
+        if os.path.exists(nome_diretorio) and os.path.isdir(nome_diretorio):
+            pagina = open("index.html", "w", encoding='utf-8')
+            pagina.write("""
+            <!DOCTYPE html>
+            <html lang="pt-br">
+            <head>
+                <meta charset="utf-8">
+                <tittle>links para arquivos de imagens</title>
+            </head>
+            <body>
+            """)
+            for arquivo in os.listdir(nome_diretorio):
+                if arquivo.endswith(".png"):
+                    pagina.write(f"<img src='{arquivo}'><br>")
+            pagina.write("""
+            </body>
+            </html>
+            """)
+            pagina.close()
+        else:
+            print("Não existe")
+        
+    
 
 if __name__ == '__main__':
     cap_9()
